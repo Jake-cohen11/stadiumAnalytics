@@ -8,7 +8,12 @@ user_stat_input = input('which stats would you like to see? enter "stop" to stop
 while True:
     if user_stat_input == 'stop':
         break
-    
+    for value in data['team_name']:
+        if value == user_team_input:
+            print(value)
+            break
+    break
+
 
 
 
