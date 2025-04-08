@@ -3,16 +3,16 @@ import numpy as np
 data = pd.read_csv('ballparks.csv')
 data.shape
 
+row = data.columns[0]
+print(f"available teams ({row}):", data[row].tolist())
+print("available stats:", list(data.columns))
+
 user_team_input = input('which teams stadium would you like to see?: ')
-user_stat_input = input('which stats would you like to see? enter "stop" to stop: ')
-while True:
-    if user_stat_input == 'stop':
-        break
-    for value in data['team_name']:
-        if value == user_team_input:
-            print(value)
-            break
-    break
+user_stat_input = input('which stats would you like to see?: ')
+
+#if user_team_input in data['team_name']:
+    #if user_
+
 
 
 
