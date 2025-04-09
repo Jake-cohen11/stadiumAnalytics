@@ -13,7 +13,18 @@ def get_stat(data, acronym, metric):
      except KeyError:
          return "Team or metric not found, please refer to the list."
 
+def main():
+    file = 'ballparks.csv'
+    data = read_csv(file)
+    print('available teams: '.join(data.index))
+    print('available metrics: '.join(data.columns))
 
+    team = input('Enter a team acronym (ex: NYY): ').strip().upper()
+    metric = input('Enter a metric name (ex: ballpark): ').strip().lower()
 
+    result = get_stat(data, team, metric)
+    print(f"\nResult: {result}")
 
-sub_data = data[['team_name', 'ballpark', 'left_field', 'center_field', 'right_field']]
+if __name__ == "__main__":
+    main()
+
