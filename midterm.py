@@ -21,11 +21,18 @@ def main():
     print(f'available teams: {teams_list}')
     print(f'available metrics: {metrics_list}')
 
-    team = input('Enter a team acronym (ex: NYY): ').strip().upper()
-    metric = input('Enter a metric name (ex: ballpark): ').strip().lower()
-
-    result = get_stat(data, team, metric)
-    print(f"\nResult: {result}")
+    while True:
+        team = input('Enter a team acronym, type STOP to exit (ex: NYY): ').strip().upper()
+        if team.upper() == 'STOP':
+            break
+        metric = input('Enter a metric name, type STOP (ex: ballpark): ').strip().lower()
+        if metric.upper() == 'STOP':
+            break
+        result = get_stat(data, team, metric)
+        if result is None:
+            print("Team or metric not found, please look at the list again and try again.")
+        else:
+            print(f"\nResult: {result}")
 
 if __name__ == "__main__":
     main()
