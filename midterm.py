@@ -16,8 +16,10 @@ def get_stat(data, acronym, metric):
 def main():
     file = 'ballparks.csv'
     data = read_csv(file)
-    print('available teams: '.join(data.index))
-    print('available metrics: '.join(data.columns))
+    teams_list = ', '.join(data.index)
+    metrics_list = ', '.join(data.columns)
+    print(f'available teams: {teams_list}')
+    print(f'available metrics: {metrics_list}')
 
     team = input('Enter a team acronym (ex: NYY): ').strip().upper()
     metric = input('Enter a metric name (ex: ballpark): ').strip().lower()
